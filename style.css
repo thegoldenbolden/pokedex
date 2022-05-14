@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", serif;
+}
+
+body {
+  --bg: rgb(229, 74, 74);
+  background: var(--bg);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  padding: 0.3em 0;
+  color: white;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#loading {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto;
+  text-align: center;
+  height: 196px;
+  width: 196px;
+  border: 10px solid white;
+  border-top-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  animation: load 1s linear infinite;
+}
+
+#cards {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2.5em;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+#pagination {
+  display: flex;
+  width: 100%;
+  margin: 10px 0;
+  padding: 0 5em;
+  justify-content: center;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  background: white;
+  border: 3px solid black;
+  margin: 10px 2em;
+  font-size: 1.1em;
+  transition: 0.3s ease-in;
+}
+
+button:hover:not(:disabled) {
+  background: rgb(125, 218, 247);
+  color: black;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.card {
+  position: relative;
+  width: 200px;
+  height: 175px;
+  margin: 35px 10px;
+  border: 3px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: -5;
+  box-shadow: 1px 5px 5px black;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 10;
+  top: -50px;
+  padding: 0.5em;
+  border: 3px solid rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  background: var(--bg);
+}
+
+.img::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  height: 49px;
+  width: 128px;
+  z-index: -10;
+  background: var(--bg);
+}
+
+.img::after {
+  position: absolute;
+  content: "#" attr(data-id);
+  height: max-content;
+  width: max-content;
+  bottom: -10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 0.8em;
+  padding: 0.2em 0.5em;
+  background: white;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.info:before {
+  content: "";
+  height: 50%;
+  width: 100%;
+}
+
+.name,
+.type {
+  text-transform: capitalize;
+}
+
+.name {
+  color: black;
+  margin: 10px 0 15px 0;
+}
+
+.info div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.type {
+  background: white;
+  padding: 0 0.5em;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 0 5px;
+}
+
+.normal {
+  background: #a8a77a;
+  color: black;
+}
+.fire {
+  background: #ee8130;
+}
+.water {
+  background: #6390f0;
+}
+.electric {
+  background: #f7d02c;
+}
+.grass {
+  background: #79c74d;
+}
+.ice {
+  background: #96d9d6;
+}
+.fighting {
+  background: #c22e28;
+  color: white;
+}
+.poison {
+  background: #a33ea1;
+  color: white;
+}
+.ground {
+  background: #e2bf65;
+}
+.flying {
+  background: #a98ff3;
+}
+.psychic {
+  background: #f95587;
+}
+.bug {
+  background: #a6b91a;
+}
+.rock {
+  background: #b6a136;
+}
+.ghost {
+  background: #735797;
+  color: white;
+}
+.dragon {
+  background: #6f35fc;
+  color: white;
+}
+.dark {
+  background: #705746;
+  color: white;
+}
+.steel {
+  background: #b7b7ce;
+}
+.fairy {
+  background: #d685ad;
+}
+
+@keyframes load {
+  0% {
+    transfrom: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
