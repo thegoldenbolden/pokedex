@@ -1,7 +1,7 @@
 const cardsEl = document.getElementById("cards");
 const loadingEl = document.getElementById("loading");
-const nextEl = document.getElementById("next");
-const backEl = document.getElementById("back");
+const nextEl = document.querySelectorAll(".next");
+const backEl = document.querySelectorAll(".back");
 
 const ITEMS_PER_PAGE = 50;
 const MAX_NUMBER_OF_POKEMON = 898;
@@ -12,8 +12,9 @@ let pokemon = [];
 let currentPage = 0;
 let isLoading = true;
 
-backEl.addEventListener("click", () => changePage(0));
-nextEl.addEventListener("click", () => changePage(1));
+backEl.forEach((e) => e.addEventListener("click", () => changePage(0)));
+nextEl.forEach((e) => e.addEventListener("click", () => changePage(1)));
+
 createCards();
 
 async function createCards() {
@@ -128,14 +129,14 @@ async function changePage(i) {
 
   switch (currentPage) {
     default:
-      backEl.removeAttribute("disabled");
-      nextEl.removeAttribute("disabled");
+      backEl.forEach((e) => e.removeAttribute("disabled"));
+      nextEl.forEach((e) => e.removeAttribute("disabled"));
       break;
     case 0:
-      backEl.setAttribute("disabled", true);
+      backEl.forEach((e) => e.setAttribute("disabled", true));
       break;
     case MAX_PAGES:
-      nextEl.setAttribute("disabled", true);
+      nextEl.forEach((e) => e.setAttribute("disabled", true));
   }
 
   await createCards();
